@@ -1,6 +1,10 @@
 package net.felixoi.gamecollection.api;
 
-public interface Arena {
+import org.spongepowered.api.entity.living.player.Player;
+
+import java.util.Optional;
+
+public interface Arena extends SignJoinable {
 
     String getName();
 
@@ -8,6 +12,10 @@ public interface Arena {
 
     Integer getCurrentPlayerCount();
 
-    Minigame getCurrentMinigame();
+    Optional<Minigame> getCurrentMinigame();
+
+    void addPlayer(Player player);
+
+    void removePlayer(Player player);
 
 }
