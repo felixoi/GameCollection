@@ -3,6 +3,7 @@ package net.felixoi.gamecollection.api;
 import org.spongepowered.api.command.CommandCallable;
 import org.spongepowered.api.command.spec.CommandSpec;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +27,11 @@ public abstract class CommandSpecDefined {
         } catch (InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
+    }
+
+    @SafeVarargs
+    protected final void registerChildCommandsByClasses(Class<? extends CommandSpecDefined>... clazz) {
+        Arrays.asList(clazz).forEach(this::registerChildCommandByClass);
     }
 
 }

@@ -9,6 +9,7 @@ public class Permissions {
         public static String REMOVE = buildPermission("arena.remove");
         public static String LIST = buildPermission("arena.list");
         public static String RENAME = buildPermission("arena.rename");
+        public static String JOIN = buildPermission("arena.join");
     }
 
     public static class Sign {

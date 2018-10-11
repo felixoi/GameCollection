@@ -56,6 +56,11 @@ public class SimpleArena implements Arena {
     }
 
     @Override
+    public List<UUID> getPlayers() {
+        return this.currentPlayers;
+    }
+
+    @Override
     public void addPlayer(Player player) {
         checkNotNull(player);
 

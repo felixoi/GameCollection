@@ -19,6 +19,7 @@ import org.spongepowered.api.text.action.TextActions;
 import org.spongepowered.api.text.format.TextColors;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ArenaCommandList extends CommandSpecDefined implements CommandExecutor {
@@ -35,7 +36,7 @@ public class ArenaCommandList extends CommandSpecDefined implements CommandExecu
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList("list", "l");
+        return Collections.singletonList("list");
     }
 
     @Override
