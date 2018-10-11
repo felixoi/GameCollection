@@ -1,6 +1,7 @@
 package net.felixoi.gamecollection.command.arena;
 
 import net.felixoi.gamecollection.GameCollection;
+import net.felixoi.gamecollection.Permissions;
 import net.felixoi.gamecollection.api.Arena;
 import net.felixoi.gamecollection.api.CommandSpecDefined;
 import net.felixoi.gamecollection.util.message.MessageTypes;
@@ -26,7 +27,7 @@ public class ArenaCommandRemove extends CommandSpecDefined implements CommandExe
     public CommandSpec getCommandSpec() {
         return CommandSpec.builder()
                 .description(Text.of("Removes an existing arena"))
-                .permission("gamecollection.arena.remove")
+                .permission(Permissions.Arena.REMOVE)
                 .arguments(GenericArguments.string(Text.of("name")))
                 .executor(this)
                 .build();

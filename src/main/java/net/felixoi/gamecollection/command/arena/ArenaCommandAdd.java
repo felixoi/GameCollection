@@ -1,6 +1,7 @@
 package net.felixoi.gamecollection.command.arena;
 
 import net.felixoi.gamecollection.GameCollection;
+import net.felixoi.gamecollection.Permissions;
 import net.felixoi.gamecollection.SimpleArena;
 import net.felixoi.gamecollection.api.ArenaManager;
 import net.felixoi.gamecollection.api.CommandSpecDefined;
@@ -25,7 +26,7 @@ public class ArenaCommandAdd extends CommandSpecDefined implements CommandExecut
     public CommandSpec getCommandSpec() {
         return CommandSpec.builder()
                 .description(Text.of("Adds a new arena"))
-                .permission("gamecollection.arena.add")
+                .permission(Permissions.Arena.ADD)
                 .arguments(GenericArguments.seq(
                         GenericArguments.string(Text.of("name")),
                         GenericArguments.integer(Text.of("maxPlayers"))

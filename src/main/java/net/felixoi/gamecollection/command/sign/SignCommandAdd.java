@@ -1,5 +1,6 @@
 package net.felixoi.gamecollection.command.sign;
 
+import net.felixoi.gamecollection.Permissions;
 import net.felixoi.gamecollection.api.CommandSpecDefined;
 import org.spongepowered.api.command.CommandException;
 import org.spongepowered.api.command.CommandResult;
@@ -19,7 +20,7 @@ public class SignCommandAdd extends CommandSpecDefined implements CommandExecuto
     public CommandSpec getCommandSpec() {
         return CommandSpec.builder()
                 .description(Text.of("Adds a new join and info sign for a specified arena"))
-                .permission("gamecollection.sign.add")
+                .permission(Permissions.Sign.ADD)
                 .arguments(GenericArguments.none())
                 .executor(this)
                 .build();

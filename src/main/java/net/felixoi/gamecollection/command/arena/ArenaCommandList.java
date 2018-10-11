@@ -1,6 +1,7 @@
 package net.felixoi.gamecollection.command.arena;
 
 import net.felixoi.gamecollection.GameCollection;
+import net.felixoi.gamecollection.Permissions;
 import net.felixoi.gamecollection.SimpleArena;
 import net.felixoi.gamecollection.api.Arena;
 import net.felixoi.gamecollection.api.CommandSpecDefined;
@@ -26,7 +27,7 @@ public class ArenaCommandList extends CommandSpecDefined implements CommandExecu
     public CommandSpec getCommandSpec() {
         return CommandSpec.builder()
                 .description(Text.of("Lists all arenas"))
-                .permission("gamecollection.arena.list")
+                .permission(Permissions.Arena.LIST)
                 .arguments(GenericArguments.none())
                 .executor(this)
                 .build();

@@ -1,5 +1,6 @@
 package net.felixoi.gamecollection.command;
 
+import net.felixoi.gamecollection.Permissions;
 import net.felixoi.gamecollection.api.CommandSpecDefined;
 import net.felixoi.gamecollection.command.sign.SignCommandAdd;
 import net.felixoi.gamecollection.command.sign.SignCommandRemove;
@@ -24,7 +25,7 @@ public class SignCommand extends CommandSpecDefined implements CommandExecutor {
 
         return CommandSpec.builder()
                 .description(Text.of("Information about the GameCollection plugin"))
-                .permission("gamecollection.sign.info")
+                .permission(Permissions.Sign.INFO)
                 .arguments(GenericArguments.none())
                 .executor(this)
                 .build();

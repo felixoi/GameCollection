@@ -1,6 +1,7 @@
 package net.felixoi.gamecollection.command.arena;
 
 import net.felixoi.gamecollection.GameCollection;
+import net.felixoi.gamecollection.Permissions;
 import net.felixoi.gamecollection.api.Arena;
 import net.felixoi.gamecollection.api.CommandSpecDefined;
 import net.felixoi.gamecollection.util.message.MessageTypes;
@@ -25,7 +26,7 @@ public class ArenaCommandRename extends CommandSpecDefined implements CommandExe
     public CommandSpec getCommandSpec() {
         return CommandSpec.builder()
                 .description(Text.of("Renames an existing arena"))
-                .permission("gamecollection.arena.rename")
+                .permission(Permissions.Arena.RENAME)
                 .arguments(GenericArguments.seq(
                         GenericArguments.string(Text.of("oldName")),
                         GenericArguments.string(Text.of("newName"))

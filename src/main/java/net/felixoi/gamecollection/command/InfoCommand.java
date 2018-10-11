@@ -1,5 +1,6 @@
 package net.felixoi.gamecollection.command;
 
+import net.felixoi.gamecollection.Permissions;
 import net.felixoi.gamecollection.api.CommandSpecDefined;
 import org.spongepowered.api.command.CommandException;
 import org.spongepowered.api.command.CommandResult;
@@ -19,7 +20,7 @@ public class InfoCommand extends CommandSpecDefined implements CommandExecutor {
     public CommandSpec getCommandSpec() {
         return CommandSpec.builder()
                 .description(Text.of("Information about the GameCollection plugin"))
-                .permission("gamecollection.info")
+                .permission(Permissions.INFO)
                 .arguments(GenericArguments.none())
                 .executor(this)
                 .build();

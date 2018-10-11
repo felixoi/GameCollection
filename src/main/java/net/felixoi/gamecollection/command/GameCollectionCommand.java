@@ -1,5 +1,6 @@
 package net.felixoi.gamecollection.command;
 
+import net.felixoi.gamecollection.Permissions;
 import net.felixoi.gamecollection.api.CommandSpecDefined;
 import org.spongepowered.api.command.args.GenericArguments;
 import org.spongepowered.api.command.spec.CommandSpec;
@@ -18,7 +19,7 @@ public class GameCollectionCommand extends CommandSpecDefined {
 
         return CommandSpec.builder()
                 .description(Text.of("Information about the GameCollection plugin"))
-                .permission("gamecollection.info")
+                .permission(Permissions.INFO)
                 .arguments(GenericArguments.none())
                 .executor(new InfoCommand())
                 .children(this.children)

@@ -1,5 +1,6 @@
 package net.felixoi.gamecollection.command.sign;
 
+import net.felixoi.gamecollection.Permissions;
 import net.felixoi.gamecollection.api.CommandSpecDefined;
 import org.spongepowered.api.command.CommandException;
 import org.spongepowered.api.command.CommandResult;
@@ -19,7 +20,7 @@ public class SignCommandRemove extends CommandSpecDefined implements CommandExec
     public CommandSpec getCommandSpec() {
         return CommandSpec.builder()
                 .description(Text.of("Removes an existing join and info sign"))
-                .permission("gamecollection.sign.remove")
+                .permission(Permissions.Sign.REMOVE)
                 .arguments(GenericArguments.none())
                 .executor(this)
                 .build();
