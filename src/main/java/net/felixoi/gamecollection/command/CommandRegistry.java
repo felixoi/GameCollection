@@ -2,17 +2,13 @@ package net.felixoi.gamecollection.command;
 
 import net.felixoi.gamecollection.GameCollection;
 import net.felixoi.gamecollection.api.CommandSpecDefined;
-import net.felixoi.gamecollection.listener.ChangeBlockListener;
-import net.felixoi.gamecollection.listener.InteractBlockListener;
 import org.spongepowered.api.Sponge;
-import org.spongepowered.api.event.block.ChangeBlockEvent;
-import org.spongepowered.api.event.block.InteractBlockEvent;
 
 public final class CommandRegistry {
 
     public static void registerCommands() {
         registerByClass(ArenaCommand.class);
-        registerByClass(InfoCommand.class);
+        registerByClass(GameCollectionCommand.class);
     }
 
     private static void registerByClass(Class<? extends CommandSpecDefined> clazz) {

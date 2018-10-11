@@ -13,10 +13,11 @@ import org.spongepowered.api.text.Text;
 import java.util.Arrays;
 import java.util.List;
 
-public class InfoCommand implements CommandExecutor, CommandSpecDefined {
+public class GameCollectionCommand implements CommandExecutor, CommandSpecDefined {
 
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
+        src.sendMessage(Text.of("test"));
         return CommandResult.success();
     }
 
@@ -26,13 +27,19 @@ public class InfoCommand implements CommandExecutor, CommandSpecDefined {
                 .description(Text.of("Information about the GameCollection plugin"))
                 .permission("gamecollection.info")
                 .arguments(GenericArguments.none())
+                .child(CommandSpec.builder()
+                        .description(Text.of("Information about the GameCollection plugin"))
+                        .permission("gamecollection.info")
+                        .arguments(GenericArguments.none())
+                        .executor(this)
+                        .build(), Arrays.asList("info", "i"))
                 .executor(this)
                 .build();
     }
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList("info", "i");
+        return Arrays.asList("gamecollection", "gc");
     }
 
 }
