@@ -40,7 +40,7 @@ public class ArenaCommandRename extends CommandSpecDefined implements CommandExe
     }
 
     @Override
-    public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
+    public CommandResult execute(CommandSource src, CommandContext args) {
         String oldName = args.<String>getOne("oldName").get();
         String newName = args.<String>getOne("newName").get();
 
