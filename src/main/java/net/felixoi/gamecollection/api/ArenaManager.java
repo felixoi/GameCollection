@@ -1,6 +1,7 @@
 package net.felixoi.gamecollection.api;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ArenaManager {
 
@@ -9,5 +10,7 @@ public interface ArenaManager {
     void addArena(Arena arena);
 
     void removeArena(Arena arena);
+
+    Optional<Arena> getArena(String name);
 
 }

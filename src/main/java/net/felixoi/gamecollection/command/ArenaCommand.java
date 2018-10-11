@@ -2,6 +2,8 @@ package net.felixoi.gamecollection.command;
 
 import net.felixoi.gamecollection.api.CommandSpecDefined;
 import net.felixoi.gamecollection.command.arena.ArenaCommandAdd;
+import net.felixoi.gamecollection.command.arena.ArenaCommandRemove;
+import net.felixoi.gamecollection.command.arena.ArenaCommandRename;
 import org.spongepowered.api.command.CommandException;
 import org.spongepowered.api.command.CommandResult;
 import org.spongepowered.api.command.CommandSource;
@@ -19,6 +21,8 @@ public class ArenaCommand extends CommandSpecDefined implements CommandExecutor 
     @Override
     public CommandSpec getCommandSpec() {
         registerChildCommandByClass(ArenaCommandAdd.class);
+        registerChildCommandByClass(ArenaCommandRemove.class);
+        registerChildCommandByClass(ArenaCommandRename.class);
 
         return CommandSpec.builder()
                 .description(Text.of("Information about the arena command"))

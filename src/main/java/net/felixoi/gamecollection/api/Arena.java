@@ -8,6 +8,8 @@ public interface Arena extends SignJoinable {
 
     String getName();
 
+    void setName(String name);
+
     Integer getMaxPlayerCount();
 
     Integer getCurrentPlayerCount();

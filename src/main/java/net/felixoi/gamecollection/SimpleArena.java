@@ -36,6 +36,11 @@ public class SimpleArena implements Arena {
     }
 
     @Override
+    public void setName(String name) {
+        this.name = checkNotNull(name);
+    }
+
+    @Override
     public Integer getMaxPlayerCount() {
         return this.maxPlayers;
     }

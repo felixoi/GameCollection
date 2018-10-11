@@ -5,6 +5,7 @@ import net.felixoi.gamecollection.api.ArenaManager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -33,6 +34,11 @@ public final class SimpleArenaManager implements ArenaManager {
         checkNotNull(arena);
 
         this.arenas.remove(arena);
+    }
+
+    @Override
+    public Optional<Arena> getArena(String name) {
+        return this.arenas.stream().filter(arena -> arena.getName().equals(name)).findFirst();
     }
 
 }
