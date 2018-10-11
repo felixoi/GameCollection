@@ -14,6 +14,7 @@ public class GameCollectionCommand extends CommandSpecDefined {
     public CommandSpec getCommandSpec() {
         registerChildCommandByClass(ArenaCommand.class);
         registerChildCommandByClass(InfoCommand.class);
+        registerChildCommandByClass(SignCommand.class);
 
         return CommandSpec.builder()
                 .description(Text.of("Information about the GameCollection plugin"))

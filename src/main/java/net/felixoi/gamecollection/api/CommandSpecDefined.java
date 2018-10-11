@@ -9,7 +9,7 @@ import java.util.Map;
 
 public abstract class CommandSpecDefined {
 
-    public Map<List<String>, CommandCallable> children;
+    protected Map<List<String>, CommandCallable> children;
 
     public CommandSpecDefined() {
         this.children = new HashMap<>();
@@ -19,7 +19,7 @@ public abstract class CommandSpecDefined {
 
     public abstract List<String> getAliases();
 
-    public void registerChildCommandByClass(Class<? extends CommandSpecDefined> clazz) {
+    protected void registerChildCommandByClass(Class<? extends CommandSpecDefined> clazz) {
         try {
             CommandSpecDefined command = clazz.newInstance();
             this. children.put(command.getAliases(), command.getCommandSpec());

@@ -27,7 +27,7 @@ public class InfoCommand extends CommandSpecDefined implements CommandExecutor {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList("gamecollection", "gc");
+        return Arrays.asList("info", "i");
     }
 
     @Override

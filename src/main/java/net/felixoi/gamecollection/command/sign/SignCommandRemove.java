@@ -1,7 +1,6 @@
-package net.felixoi.gamecollection.command;
+package net.felixoi.gamecollection.command.sign;
 
 import net.felixoi.gamecollection.api.CommandSpecDefined;
-import net.felixoi.gamecollection.command.arena.ArenaCommandAdd;
 import org.spongepowered.api.command.CommandException;
 import org.spongepowered.api.command.CommandResult;
 import org.spongepowered.api.command.CommandSource;
@@ -14,29 +13,26 @@ import org.spongepowered.api.text.Text;
 import java.util.Arrays;
 import java.util.List;
 
-public class ArenaCommand extends CommandSpecDefined implements CommandExecutor {
+public class SignCommandRemove extends CommandSpecDefined implements CommandExecutor {
 
     @Override
     public CommandSpec getCommandSpec() {
-        registerChildCommandByClass(ArenaCommandAdd.class);
-
         return CommandSpec.builder()
-                .description(Text.of("Information about the arena command"))
-                .permission("gamecollection.arena.info")
+                .description(Text.of("Removes an existing join and info sign"))
+                .permission("gamecollection.sign.remove")
                 .arguments(GenericArguments.none())
                 .executor(this)
-                .children(this.children)
                 .build();
     }
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList("arena", "a");
+        return Arrays.asList("remove", "rm");
     }
 
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
-        src.sendMessage(Text.of("arena"));
+        src.sendMessage(Text.of("remove sign"));
         return CommandResult.success();
     }
 

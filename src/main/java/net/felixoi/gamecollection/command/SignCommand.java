@@ -1,6 +1,8 @@
-package net.felixoi.gamecollection.command.arena;
+package net.felixoi.gamecollection.command;
 
 import net.felixoi.gamecollection.api.CommandSpecDefined;
+import net.felixoi.gamecollection.command.sign.SignCommandAdd;
+import net.felixoi.gamecollection.command.sign.SignCommandRemove;
 import org.spongepowered.api.command.CommandException;
 import org.spongepowered.api.command.CommandResult;
 import org.spongepowered.api.command.CommandSource;
@@ -13,13 +15,16 @@ import org.spongepowered.api.text.Text;
 import java.util.Arrays;
 import java.util.List;
 
-public class AddCommand extends CommandSpecDefined implements CommandExecutor {
+public class SignCommand extends CommandSpecDefined implements CommandExecutor {
 
     @Override
     public CommandSpec getCommandSpec() {
+        registerChildCommandByClass(SignCommandAdd.class);
+        registerChildCommandByClass(SignCommandRemove.class);
+
         return CommandSpec.builder()
-                .description(Text.of("Add a new arena"))
-                .permission("gamecollection.arena.add")
+                .description(Text.of("Information about the GameCollection plugin"))
+                .permission("gamecollection.sign.info")
                 .arguments(GenericArguments.none())
                 .executor(this)
                 .build();
@@ -27,12 +32,12 @@ public class AddCommand extends CommandSpecDefined implements CommandExecutor {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList("add", "a");
+        return Arrays.asList("sign", "s");
     }
 
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
-        src.sendMessage(Text.of("add arena"));
+        src.sendMessage(Text.of("sign info"));
         return CommandResult.success();
     }
 
