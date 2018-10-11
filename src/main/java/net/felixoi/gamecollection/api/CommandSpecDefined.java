@@ -1,13 +1,31 @@
 package net.felixoi.gamecollection.api;
 
+import org.spongepowered.api.command.CommandCallable;
 import org.spongepowered.api.command.spec.CommandSpec;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public interface CommandSpecDefined {
+public abstract class CommandSpecDefined {
 
-    CommandSpec getCommandSpec();
+    public Map<List<String>, CommandCallable> children;
 
-    List<String> getAliases();
+    public CommandSpecDefined() {
+        this.children = new HashMap<>();
+    }
+
+    public abstract CommandSpec getCommandSpec();
+
+    public abstract List<String> getAliases();
+
+    public void registerChildCommandByClass(Class<? extends CommandSpecDefined> clazz) {
+        try {
+            CommandSpecDefined command = clazz.newInstance();
+            this. children.put(command.getAliases(), command.getCommandSpec());
+        } catch (InstantiationException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
