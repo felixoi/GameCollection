@@ -6,6 +6,8 @@ import net.felixoi.gamecollection.api.ArenaManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 public final class SimpleArenaManager implements ArenaManager {
 
     private List<Arena> arenas;
@@ -21,11 +23,15 @@ public final class SimpleArenaManager implements ArenaManager {
 
     @Override
     public void addArena(Arena arena) {
+        checkNotNull(arena);
+
         this.arenas.add(arena);
     }
 
     @Override
     public void removeArena(Arena arena) {
+        checkNotNull(arena);
+
         this.arenas.remove(arena);
     }
 
