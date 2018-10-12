@@ -4,6 +4,7 @@ import net.felixoi.gamecollection.GameCollection;
 import net.felixoi.gamecollection.Permissions;
 import net.felixoi.gamecollection.api.Arena;
 import net.felixoi.gamecollection.api.CommandSpecDefined;
+import net.felixoi.gamecollection.sign.SignModifications;
 import net.felixoi.gamecollection.util.message.MessageTypes;
 import net.felixoi.gamecollection.util.message.MessageUtil;
 import org.spongepowered.api.command.CommandException;
@@ -40,16 +41,24 @@ public class SignCommandAdd extends CommandSpecDefined implements CommandExecuto
 
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) {
+        String arenaName = args.<String>getOne("arena").get();
+
         if(src instanceof Player) {
             Player player = (Player) src;
+            Optional<Arena> optionalArena = GameCollection.getInstance().getArenaManager().getArena(arenaName);
 
-
+            if(optionalArena.isPresent()) {
+                GameCollection.getInstance().getSignModificationManager().addModifier(player.getUniqueId(), optionalArena.get(), SignModifications.CREATE);
+                MessageUtil.sendMessage(player, MessageTypes.SUCCESS, Text.of("Left click on a sign to create the arena sign!"));
+                return CommandResult.success();
+            } else {
+                MessageUtil.sendMessage(player, MessageTypes.ERROR, Text.of("There is no arena with the name ", TextColors.RED, arenaName, TextColors.WHITE, "!"));
+                return CommandResult.empty();
+            }
         } else {
             MessageUtil.sendMessage(src, MessageTypes.ERROR, Text.of("This command is only for players!"));
             return CommandResult.empty();
         }
-
-        return CommandResult.success();
     }
 
 }

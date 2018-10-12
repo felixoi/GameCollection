@@ -18,11 +18,6 @@ public class ArenaCommand extends CommandSpecDefined implements CommandExecutor 
 
     @Override
     public CommandSpec getCommandSpec() {
-        registerChildCommandByClass(ArenaCommandAdd.class);
-        registerChildCommandByClass(ArenaCommandRemove.class);
-        registerChildCommandByClass(ArenaCommandRename.class);
-        registerChildCommandByClass(ArenaCommandList.class);
-
         registerChildCommandsByClasses(ArenaCommandAdd.class, ArenaCommandRemove.class, ArenaCommandRename.class,
                 ArenaCommandList.class, ArenaCommandJoin.class, ArenaCommandLeave.class);
 

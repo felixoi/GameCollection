@@ -2,12 +2,10 @@ package net.felixoi.gamecollection.command.arena;
 
 import net.felixoi.gamecollection.GameCollection;
 import net.felixoi.gamecollection.Permissions;
-import net.felixoi.gamecollection.SimpleArena;
-import net.felixoi.gamecollection.api.ArenaManager;
+import net.felixoi.gamecollection.arena.SimpleArena;
 import net.felixoi.gamecollection.api.CommandSpecDefined;
 import net.felixoi.gamecollection.util.message.MessageTypes;
 import net.felixoi.gamecollection.util.message.MessageUtil;
-import org.spongepowered.api.command.CommandException;
 import org.spongepowered.api.command.CommandResult;
 import org.spongepowered.api.command.CommandSource;
 import org.spongepowered.api.command.args.CommandContext;

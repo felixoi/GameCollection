@@ -2,7 +2,6 @@ package net.felixoi.gamecollection.command.arena;
 
 import net.felixoi.gamecollection.GameCollection;
 import net.felixoi.gamecollection.Permissions;
-import net.felixoi.gamecollection.SimpleArena;
 import net.felixoi.gamecollection.api.Arena;
 import net.felixoi.gamecollection.api.CommandSpecDefined;
 import net.felixoi.gamecollection.util.message.MessageTypes;
@@ -18,7 +17,6 @@ import org.spongepowered.api.text.Text;
 import org.spongepowered.api.text.action.TextActions;
 import org.spongepowered.api.text.format.TextColors;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 

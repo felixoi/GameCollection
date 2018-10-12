@@ -1,8 +1,9 @@
-package net.felixoi.gamecollection;
+package net.felixoi.gamecollection.arena;
 
 import net.felixoi.gamecollection.api.Arena;
 import net.felixoi.gamecollection.api.ArenaManager;
-import org.spongepowered.api.entity.living.player.Player;
+import org.spongepowered.api.world.Location;
+import org.spongepowered.api.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,11 @@ public final class SimpleArenaManager implements ArenaManager {
     @Override
     public Optional<Arena> getArenaByPlayer(UUID uuid) {
         return this.arenas.stream().filter(arena -> arena.getPlayers().contains(uuid)).findFirst();
+    }
+
+    @Override
+    public Optional<Arena> getArenaBySign(Location<World> signLocation) {
+        return this.arenas.stream().filter(arena -> arena.getJoinSigns().contains(signLocation)).findFirst();
     }
 
 }

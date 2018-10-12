@@ -1,15 +1,19 @@
 package net.felixoi.gamecollection.api;
 
 import com.flowpowered.math.vector.Vector3i;
+import org.spongepowered.api.world.Location;
+import org.spongepowered.api.world.World;
 
 import java.util.List;
 
 public interface SignJoinable {
 
-    List<Vector3i> getJoinSigns();
+    List<Location<World>> getJoinSigns();
 
-    void addJoinSign(Vector3i signPos);
+    void addJoinSign(Location<World> location);
 
-    void removeJoinSign(Vector3i signPos);
+    void removeJoinSign(Location<World> location);
+
+    void updateSigns();
 
 }

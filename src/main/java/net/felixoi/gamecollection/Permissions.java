@@ -1,6 +1,6 @@
 package net.felixoi.gamecollection;
 
-public class Permissions {
+public final class Permissions {
 
     public static String INFO = buildPermission("info");
 

@@ -20,14 +20,14 @@ public class SignCommand extends CommandSpecDefined implements CommandExecutor {
 
     @Override
     public CommandSpec getCommandSpec() {
-        registerChildCommandByClass(SignCommandAdd.class);
-        registerChildCommandByClass(SignCommandRemove.class);
+        registerChildCommandsByClasses(SignCommandAdd.class, SignCommandRemove.class);
 
         return CommandSpec.builder()
                 .description(Text.of("Information about the GameCollection plugin"))
                 .permission(Permissions.Sign.INFO)
                 .arguments(GenericArguments.none())
                 .executor(this)
+                .children(this.children)
                 .build();
     }
 
